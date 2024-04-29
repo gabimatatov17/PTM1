@@ -129,22 +129,21 @@ public class Board {
                     if(word.getTiles()[i - word.getRow()] == null) continue;
                     left = word.getRow()-1;
                     right = word.getRow()+1;
-                    if (0 <= left && left <= this.boardSize-1){
-                        if(this.boardArray[i][left] != null && this.boardArray[i][right] == null) {
-                            Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "end");
-                            wordList.add(newWord);
-                            continue;
-                        }else if(this.boardArray[i][left] == null && this.boardArray[i][right] != null) {
-                            Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "beginning");
-                            wordList.add(newWord);
-                            continue;
-                        }
-                        else if(this.boardArray[i][left] != null && this.boardArray[i][right] != null) {
-                            Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "middle");
-                            wordList.add(newWord);
-                            continue;    
-                        }
-
+                    // if (0 <= left && left <= this.boardSize-1){
+                    //     if(this.boardArray[i][left] != null && this.boardArray[i][right] == null) {
+                    //         Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "end");
+                    //         wordList.add(newWord);
+                    //         continue;
+                    //     }else if(this.boardArray[i][left] == null && this.boardArray[i][right] != null) {
+                    //         Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "beginning");
+                    //         wordList.add(newWord);
+                    //         continue;
+                    //     }
+                    //     else if(this.boardArray[i][left] != null && this.boardArray[i][right] != null) {
+                    //         Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "middle");
+                    //         wordList.add(newWord);
+                    //         continue;    
+                    //     }
                     }
                     // Todo: Chcek for right
                 }
