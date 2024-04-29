@@ -104,7 +104,7 @@ public class Board {
                     if(word.getTiles()[i - word.getCol()].equals(this.boardArray[word.getRow()][i])) continue;
                     up = word.getRow()-1;
                     down = word.getRow()+1;
-                    if(0 <= up && up <= this.boardSize-1)
+                    if(0 <= up && up <= this.boardSize-1){
                         if(this.boardArray[up][i] != null && this.boardArray[down][i] == null) {
                             Word newWord = extractWord(word.getRow(), i, word.isVertical(), word.getTiles()[i-word.getCol()], "end");
                             wordList.add(newWord);
@@ -120,6 +120,7 @@ public class Board {
                             wordList.add(newWord);
                             continue;    
                         }
+                    }
                     // Todo: Chcek for down
                 }
             } else {
@@ -128,7 +129,24 @@ public class Board {
                     if(word.getTiles()[i - word.getRow()] == null) continue;
                     left = word.getRow()-1;
                     right = word.getRow()+1;
-                    // ToDo: Continue to check left and right;
+                    if (0 <= left && left <= this.boardSize-1){
+                        if(this.boardArray[i][left] != null && this.boardArray[i][right] == null) {
+                            Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "end");
+                            wordList.add(newWord);
+                            continue;
+                        }else if(this.boardArray[i][left] == null && this.boardArray[i][right] != null) {
+                            Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "beginning");
+                            wordList.add(newWord);
+                            continue;
+                        }
+                        else if(this.boardArray[i][left] != null && this.boardArray[i][right] != null) {
+                            Word newWord = extractWord(i, word.getCol(), word.isVertical(), word.getTiles()[i-word.getRow()], "middle");
+                            wordList.add(newWord);
+                            continue;    
+                        }
+
+                    }
+                    // Todo: Chcek for right
                 }
             }
         return wordList;
@@ -255,7 +273,7 @@ public class Board {
         }
         this.isFirstWord = false;
         // System.out.println("==========================");
-        //System.out.println(newWordsScore);
+        // System.out.println(newWordsScore);
         return newWordsScore;
     }
 
