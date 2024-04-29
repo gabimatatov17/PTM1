@@ -147,7 +147,7 @@ public class Board {
                     }
                     // Todo: Chcek for right
                 }
-            }
+            // }
         return wordList;
     }
 
