@@ -87,11 +87,7 @@ public class MainTrain {
 		if(b.tryPlaceWord(paste)!=25)
 			System.out.println("problem in placeWord for 3ed word (-10)");
 
-		// Word fun = new Word(get("FUN"), 0, 0, false);
-		// System.out.println(b.boardLegal(fun));
-		// System.out.println(b.tryPlaceWord(fun));
-
-		Word mob=new Word(get("MOB"), 8, 7, false);
+		Word mob=new Word(get("_OB"), 8, 7, false);
 		if(b.tryPlaceWord(mob)!=18)
 			System.out.println("problem in placeWord for 4th word (-10)");
 
